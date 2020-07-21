@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/Public/CSS/styles.css" />
+    <link rel="stylesheet" href="/public/css/styles.css" />
     <title>Darkroom</title>
   </head>
   <body>
@@ -35,7 +35,9 @@
     <!-- Navbar end -->
 
     <div class="container">
-      <h1>Upload Image</h1>
+      <h1>Image Upload</h1>
+      <% if (typeof msg !== 'undefined'){ %> <%= msg %> <% } else {%> <%= msg=''
+      %> <% } %>
       <!-- upload form -->
       <form action="/upload" method="POST" enctype="multipart/form-data">
         <div class="file-field input-field">
@@ -50,6 +52,11 @@
         <button type="submit" class="btn">Submit</button>
       </form>
       <!-- Upload form end  -->
+      <hr />
+      <br />
+      <% if (typeof file !== 'undefined'){ %>
+      <img src="<%= file %>" class="responsive-img" />
+      <% } else {%> <%= file='' %> <% } %>
     </div>
 
     <script
